@@ -1,0 +1,124 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport", initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><title>undefined的微名片</title><link href="../../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"><link href="../../stylesheets/style.css" rel="stylesheet"><link href="../../stylesheets/main.css" rel="stylesheet"></head><body><div>
+		<div class="col-md-4 col-xs-12 main" style="background-color: #ff7694;">
+			<!-- ngInclude: '/views/'+topModule + '.html' --><div ng-include="'/views/'+topModule + '.html'" class="ng-scope"><div class="top ng-scope" id="top1" style="height: 200px; 
+background: url('../uploads/18163184708/') no-repeat; 
+background-size: 100% 100px;
+position: relative;">
+	<!-- ngRepeat: info in topFiles --><div ng-repeat="info in topFiles" class="ng-scope">
+		<!-- ngIf: info.src == 'default' --><img ng-if="info.src == 'default'" ng-src="../images/pImage.jpg" ng-style="info.style" ng-mousedown="dragable($event, info)" class="ng-scope" src="../images/pImage.jpg" style="width: 80px; height: 80px; position: absolute; left: 20%; top: 30%; border-radius: 50%;"><!-- end ngIf: info.src == 'default' -->
+		<!-- ngIf: info.src != 'default' -->
+	</div><!-- end ngRepeat: info in topFiles -->
+
+	<!-- ngRepeat: info in topInfos --><div ng-repeat="info in topInfos" class="ng-scope">
+		<div ng-style="info.style" ng-mousedown="dragable($event, info)" class="ng-binding"></div>
+	</div><!-- end ngRepeat: info in topInfos --><div ng-repeat="info in topInfos" class="ng-scope">
+		<div ng-style="info.style" ng-mousedown="dragable($event, info)" class="ng-binding"></div>
+	</div><!-- end ngRepeat: info in topInfos -->
+</div></div>
+			<!-- ngInclude: '/views/'+textModule + '.html' --><div ng-include="'/views/'+textModule + '.html'" class="ng-scope"><div class="text ng-scope">
+	<ul>
+		<!-- ngRepeat: info in personInfos --><div ng-repeat="info in personInfos" class="ng-scope">
+			<li>
+				<span class="title ng-binding">联系电话</span>
+				<span class="content ng-binding"></span>
+				<!-- ngIf: info.name == '联系电话' --><a ng-if="info.name == '联系电话'" href="javascript:void(0)" class="ng-scope"><img src="../images/phone.png" width="15px" height="15px"></a><!-- end ngIf: info.name == '联系电话' -->
+				<!-- ngIf: info.name == 'QQ号码' -->
+				<!-- ngIf: info.name == '微信号码' -->
+				<!-- ngIf: info.name == '联系地址' -->
+				
+			</li>
+		</div><!-- end ngRepeat: info in personInfos --><div ng-repeat="info in personInfos" class="ng-scope">
+			<li>
+				<span class="title ng-binding">联系地址</span>
+				<span class="content ng-binding"></span>
+				<!-- ngIf: info.name == '联系电话' -->
+				<!-- ngIf: info.name == 'QQ号码' -->
+				<!-- ngIf: info.name == '微信号码' -->
+				<!-- ngIf: info.name == '联系地址' --><a ng-if="info.name == '联系地址'" href="http://map.baidu.com/mobile/?third_party=uri_api#place/list/qt=s&amp;wd=&amp;point=&amp;searchFlag=uri_api&amp;c=340/l=&amp;vt=map&amp;i=0" class="ng-scope">
+				<img src="../images/map.png" width="15px" height="15px"></a><!-- end ngIf: info.name == '联系地址' -->
+				
+			</li>
+		</div><!-- end ngRepeat: info in personInfos --><div ng-repeat="info in personInfos" class="ng-scope">
+			<li>
+				<span class="title ng-binding">微信号码</span>
+				<span class="content ng-binding"></span>
+				<!-- ngIf: info.name == '联系电话' -->
+				<!-- ngIf: info.name == 'QQ号码' -->
+				<!-- ngIf: info.name == '微信号码' --><a ng-if="info.name == '微信号码'" href="javascript:void(0)" class="ng-scope"><img src="../images/wechat.png" width="15px" height="15px"></a><!-- end ngIf: info.name == '微信号码' -->
+				<!-- ngIf: info.name == '联系地址' -->
+				
+			</li>
+		</div><!-- end ngRepeat: info in personInfos --><div ng-repeat="info in personInfos" class="ng-scope">
+			<li>
+				<span class="title ng-binding">QQ号码</span>
+				<span class="content ng-binding"></span>
+				<!-- ngIf: info.name == '联系电话' -->
+				<!-- ngIf: info.name == 'QQ号码' --><a ng-if="info.name == 'QQ号码'" href="javascript:void(0)" class="ng-scope"><img src="../images/QQ.png" width="15px" height="15px"></a><!-- end ngIf: info.name == 'QQ号码' -->
+				<!-- ngIf: info.name == '微信号码' -->
+				<!-- ngIf: info.name == '联系地址' -->
+				
+			</li>
+		</div><!-- end ngRepeat: info in personInfos --><div ng-repeat="info in personInfos" class="ng-scope">
+			<li>
+				<span class="title ng-binding">邮箱</span>
+				<span class="content ng-binding"></span>
+				<!-- ngIf: info.name == '联系电话' -->
+				<!-- ngIf: info.name == 'QQ号码' -->
+				<!-- ngIf: info.name == '微信号码' -->
+				<!-- ngIf: info.name == '联系地址' -->
+				
+			</li>
+		</div><!-- end ngRepeat: info in personInfos -->
+
+		<!-- ngRepeat: info in companyInfos --><div ng-repeat="info in companyInfos" class="ng-scope">
+			<li>
+				<span class="title ng-binding">固定电话</span>
+				<span class="content ng-binding"></span>
+			</li>
+		</div><!-- end ngRepeat: info in companyInfos --><div ng-repeat="info in companyInfos" class="ng-scope">
+			<li>
+				<span class="title ng-binding">传真号码</span>
+				<span class="content ng-binding"></span>
+			</li>
+		</div><!-- end ngRepeat: info in companyInfos --><div ng-repeat="info in companyInfos" class="ng-scope">
+			<li>
+				<span class="title ng-binding">网址</span>
+				<span class="content ng-binding"></span>
+			</li>
+		</div><!-- end ngRepeat: info in companyInfos -->
+		<!-- ngRepeat: info in otherInfos -->
+	</ul>
+</div></div>
+			<div class="imageContainer">
+				<!-- ngRepeat: fileName in botFiles track by $index -->
+			</div>
+			<div class="menu" style="background-color: #ff7694;">
+				<ul>
+					<li>
+						<a href="tel:18163184708">
+							<div><img src="../images/menu1.png" alt="" width="22" height="22"></div>
+							<span>一键拨号</span>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<img src="../images/menu2.png" alt="" width="22" height="22">
+							<span>存到手机</span>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<img src="../images/menu3.png" alt="" width="22" height="22">
+							<span>新建名片</span>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<img src="../images/menu4.png" alt="" width="22" height="22">
+							<span>推荐记录</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div></body></html>

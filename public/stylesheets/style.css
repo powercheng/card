@@ -1,0 +1,60 @@
+/*fieldset.scheduler-border {
+	border: 1px groove #ddd !important;
+	padding: 0 1.4em 1.4em 1.4em !important;
+	margin: 0 0 1.5em 0 !important;
+	-webkit-box-shadow: 0px 0px 0px 0px #000;
+	box-shadow: 0px 0px 0px 0px #000;
+}
+
+legend.scheduler-border {
+	width: inherit;
+	padding: 0 10px;
+	border-bottom: none;
+}
+*/
+fieldset {
+	margin-bottom: 20px;
+}
+legend {
+	font-size: 18px;
+	margin: 0;
+}
+input {
+	margin: 2px;
+	font-size: :;px;
+}
+
+input[type=file] {
+	display: inline;
+}
+
+
+.add {
+	border-radius: 1em;
+	padding: 3px;
+	width: 25%;
+	margin: 2px;
+}
+
+.thumb {
+	width: 24px;
+	height: 24px;
+	float: none;
+	position: relative;
+	top: 7px;
+}
+
+form .progress {
+	line-height: 15px;
+}
+
+.progress {
+	display: inline-block;
+	width: 100px;
+	border: 3px groove #CCC;
+}
+.progress div {
+	font-size: smaller;
+	background: orange;
+	width: 0;
+}
