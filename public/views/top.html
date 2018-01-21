@@ -4,7 +4,7 @@ background-size: 100% {{topImgHeight}}px;
 position: relative;">
 
 	<div class="music" id="musicImage" onclick="music()">
-		<audio id="musicId" ng-src="{{musicUrl}}" autoplay="autoplay">
+		<audio id="musicId" ng-src="{{trustUrl(otherFiles[4].value)}}" autoplay="autoplay">
 		</audio>
 	</div>
 
@@ -14,7 +14,7 @@ position: relative;">
 			<img ng-if="info.src != '默认头像.jpg'" ng-src="{{host}}/uploads/{{phone}}/{{info.src}}" ng-style="info.style" ng-mousedown="dragable($event, info)" />
 		</div>
 		<div ng-if="checkVideo(info.src)">
-			<video type="video/mp4" ng-src="{{videoUrl(info.src)}}" ng-style="info.style" ng-mousedown="dragable($event, info)" controls="controls">
+			<video type="video/mp4" ng-src="{{trustUrl(info.src)}}" ng-style="info.style" ng-mousedown="dragable($event, info)" controls="controls">
 			</video>
 		</div>
 	</div>

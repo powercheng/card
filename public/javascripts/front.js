@@ -13,7 +13,7 @@ app.controller('AddCustomersCtrl', ['$scope', '$http', 'fileUpload', '$sce', fun
 	$scope.host = location.origin;
 	$scope.topInfos = [{
 			"name": "姓名",
-			"value": "",
+			"value": " ",
 			"style": {
 				"fontFamly": "宋体",
 				"fontSize": "28px",
@@ -25,7 +25,7 @@ app.controller('AddCustomersCtrl', ['$scope', '$http', 'fileUpload', '$sce', fun
 		},
 		{
 			"name": "公司名称",
-			"value": "",
+			"value": " ",
 			"style": {
 				"fontFamly": "宋体",
 				"fontSize": "18px",
@@ -37,7 +37,7 @@ app.controller('AddCustomersCtrl', ['$scope', '$http', 'fileUpload', '$sce', fun
 		},
 		{
 			"name": "职位",
-			"value": "",
+			"value": " ",
 			"style": {
 				"fontFamly": "宋体",
 				"fontSize": "18px",
@@ -50,8 +50,8 @@ app.controller('AddCustomersCtrl', ['$scope', '$http', 'fileUpload', '$sce', fun
 	];
 	$scope.addTopInfo = function(arr) {
 		arr.push({
-			"name": "",
-			"value": "",
+			"name": " ",
+			"value": " ",
 			"style": {
 				"fontFamly": "宋体",
 				"fontSize": "18px",
@@ -64,45 +64,46 @@ app.controller('AddCustomersCtrl', ['$scope', '$http', 'fileUpload', '$sce', fun
 	};
 	$scope.personInfos = [{
 		"name": "联系电话",
-		"value": ""
+		"value": " "
 	}, {
 		"name": "联系地址",
-		"value": ""
+		"value": " "
 	}, {
 		"name": "微信号码",
-		"value": ""
+		"value": " "
 	}, {
 		"name": "QQ号码",
-		"value": ""
+		"value": " "
 	}, {
 		"name": "邮箱",
-		"value": ""
+		"value": " "
 	}];
 	$scope.otherFiles = [{
 		"name": "地址百度坐标",
-		"value": ""
+		"value": " "
 	}, {
 		"name": "微信二维码",
-		"value": ""
+		"value": " "
 	}, {
 		"name": "QQ二维码",
-		"value": ""
+		"value": " "
 	}, {
 		"name": "顶部背景",
-		"value": ""
+		"value": " "
 	}, {
 		"name": "背景音乐",
-		"value": ""
+		"value": "default"
 	}];
+
 	$scope.companyInfos = [{
 		"name": "固定电话",
-		"value": ""
+		"value": " "
 	}, {
 		"name": "传真号码",
-		"value": ""
+		"value": " "
 	}, {
 		"name": "网址",
-		"value": ""
+		"value": " "
 	}];
 	$scope.otherInfos = [];
 	$scope.topFiles = [{
@@ -131,8 +132,9 @@ app.controller('AddCustomersCtrl', ['$scope', '$http', 'fileUpload', '$sce', fun
 	}
 	$scope.botFiles = [];
 	$scope.addBotFile = function(arr) {
-		arr.push("");
+		arr.push(" ");
 	}
+
 	$scope.myVar = [true, true, true, true, true, true, true, true, true];
 	$scope.textModule = '单栏';
 	$scope.bgColor = '#ff7694';
@@ -140,7 +142,7 @@ app.controller('AddCustomersCtrl', ['$scope', '$http', 'fileUpload', '$sce', fun
 	$scope.topHeight = 200;
 	$scope.topImgHeight = 100;
 	$scope.topModule = '1';
-	$scope.musicUrl = '/images/music.mp3';
+
 	$scope.toggle = function(index) {
 		$scope.myVar[index] = !$scope.myVar[index];
 	};
@@ -179,15 +181,13 @@ app.controller('AddCustomersCtrl', ['$scope', '$http', 'fileUpload', '$sce', fun
 
 	$scope.getFile = function() {
 		var url = "/customers/file/" + $scope.phone;
-		console.log("getFile" + url);
+
 		$http.get(url, {}).then(function(res) {
 			if(res.data.status == "0") {
 				$scope.fileStatus = res.data.data;
 			} else {
 				$scope.fileStatus = "获取成功";
 				$scope.filesName = res.data.data;
-				$scope.selectNames = res.data.data.slice(0);
-				$scope.selectNames.push("");
 			}
 		});
 	};
@@ -253,7 +253,7 @@ app.controller('AddCustomersCtrl', ['$scope', '$http', 'fileUpload', '$sce', fun
 				method: "GET",
 				url: url,
 			}).success(function(res) {
-				console.log(res);
+
 				if(res == "") {
 					var url = "./customers";
 					$http({
@@ -267,13 +267,19 @@ app.controller('AddCustomersCtrl', ['$scope', '$http', 'fileUpload', '$sce', fun
 								companyInfos: angular.toJson($scope.companyInfos),
 								otherInfos: angular.toJson($scope.otherInfos),
 								botFiles: angular.toJson($scope.botFiles),
-								otherFiles: angular.toJson($scope.otherFiles)
+								otherFiles: angular.toJson($scope.otherFiles),
+								textModule: angular.toJson($scope.textModule),
+								bgColor: angular.toJson($scope.bgColor),
+								menuColor: angular.toJson($scope.menuColor),
+								topHeigh: angular.toJson($scope.topHeight),
+								topImgHeight: angular.toJson($scope.topImgHeight),
+								topModule: angular.toJson($scope.topModule)
 							}
 						}).success(function(res) {
 							$scope.createStatus = res;
 						})
 						.error(function(res) {
-							console.log(0);
+
 						});
 				} else {
 					$scope.getFile();
@@ -285,13 +291,18 @@ app.controller('AddCustomersCtrl', ['$scope', '$http', 'fileUpload', '$sce', fun
 					$scope.otherInfos = angular.fromJson(res[0].otherInfos);
 					$scope.botFiles = angular.fromJson(res[0].botFiles);
 					$scope.otherFiles = angular.fromJson(res[0].otherFiles);
-					$['.bFile'].val(botFiles[0]);
+					$scope.textModule = angular.fromJson(res[0].textModule);
+					$scope.bgColor = angular.fromJson(res[0].bgColor);
+					$scope.menuColor = angular.fromJson(res[0].menuColor);
+					$scope.topHeight = angular.fromJson(res[0].topHeight);
+					$scope.topImgHeight = angular.fromJson(res[0].topImgHeight);
+					$scope.topModule = angular.fromJson(res[0].topModule);
 
 					$scope.createStatus = "获取成功";
 				}
 			})
 			.error(function(res) {
-				console.log(res);
+
 			});
 	}
 
@@ -308,13 +319,19 @@ app.controller('AddCustomersCtrl', ['$scope', '$http', 'fileUpload', '$sce', fun
 					companyInfos: angular.toJson($scope.companyInfos),
 					otherInfos: angular.toJson($scope.otherInfos),
 					botFiles: angular.toJson($scope.botFiles),
-					otherFiles: angular.toJson($scope.otherFiles)
+					otherFiles: angular.toJson($scope.otherFiles),
+					textModule: angular.toJson($scope.textModule),
+					bgColor: angular.toJson($scope.bgColor),
+					menuColor: angular.toJson($scope.menuColor),
+					topHeight: angular.toJson($scope.topHeight),
+					topImgHeight: angular.toJson($scope.topImgHeight),
+					topModule: angular.toJson($scope.topModule)
 				}
 			}).success(function(res) {
-				console.log(res);
+
 			})
 			.error(function(res) {
-				console.log(res);
+
 			});
 	}
 	/*	$scope.getCustomers = function() {
@@ -336,24 +353,26 @@ app.controller('AddCustomersCtrl', ['$scope', '$http', 'fileUpload', '$sce', fun
 				url: "./customers/create",
 				data: {
 					'phone': $scope.phone,
+					'name': $scope.topInfos[0].value,
 					'data': data
 				}
 			})
 			.success(function() {
-				console.log(1);
+
 			})
 			.error(function() {
-				console.log(2);
+
 			});
 	}
-	$scope.trust = function(name) {
-		$scope.musicUrl = $scope.host + '/uploads/' + $scope.phone + '/' + name;
-		$sce.trustAsResourceUrl(musicUrl);
-	}
-	$scope.videoUrl = function(url) {
-		return $sce.trustAsResourceUrl('./uploads/18163184708/' + url);
-	}
 
+	$scope.trustUrl = function(url) {
+		console.log('进入trustUrl方法');
+		if(url == 'default') {
+			return $sce.trustAsResourceUrl($scope.host + '/images/music.mp3');
+		} else {
+			return $sce.trustAsResourceUrl('./uploads/' + $scope.phone + '/' + url);
+		}
+	}
 }]);
 
 app.directive("fileModel", ["$parse", function($parse) {

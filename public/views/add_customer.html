@@ -66,7 +66,11 @@
 
 					<div ng-repeat="info in topFiles">
 						<label class="control-label" style="width: 25%">顶部文件{{$index+1}}</label>
-						<select style="width: 60%" ng-model="topFiles[$index].src" ng-options="x for x in selectNames"></select <a href="javascript:void(0)">&nbsp&nbsp<img ng-src="{{host}}/images/close.png" width="15px" height="15px" ng-click="removeInfo(topFiles, $index)"></a>
+						<select style="width: 60%" ng-model="info.src">
+							<option value="{{info.src}}">{{info.src}}</option>
+							<option ng-repeat="x in filesName" value="{{x}}">{{x}}</option>
+						</select>
+						<a href="javascript:void(0)">&nbsp&nbsp<img ng-src="{{host}}/images/close.png" width="15px" height="15px" ng-click="removeInfo(topFiles, $index)"></a>
 					</div>
 					<button class="add" ng-click="addTopFile(topFiles)">添加顶部文件</button>
 
@@ -80,7 +84,10 @@
 
 					<div ng-repeat="info in botFiles">
 						<label class="control-label" style="width: 25%">底部文件{{$index+1}}</label>
-						<select class="bFiles" style="width: 60%" ng-model="botFiles[$index]" ng-options="x for x in selectNames"></select>
+						<select style="width: 60%" ng-model="info">
+							<option value="{{info}}">{{info}}</option>
+							<option ng-repeat="x in filesName" value="{{x}}">{{x}}</option>
+						</select>
 						<a href="javascript:void(0)">&nbsp&nbsp<img ng-src="{{host}}/images/close.png" width="15px" height="15px" ng-click="removeInfo(botFiles, $index)"></a>
 					</div>
 					<button class="add" ng-click="addBotFile(botFiles)">添加底部文件</button>
@@ -93,120 +100,52 @@
 				<fieldset class="scheduler-border">
 					<legend class="scheduler-border" ng-click="toggle(6)">其他文件<img ng-src="{{host}}/images/up.png" width="30px" height="30px" /></legend>
 					<div ng-repeat="info in otherFiles">
-						
 						<div ng-switch="info.name">
 							<div ng-switch-when="背景音乐">
 								<label class="control-label" style="width: 25%">{{info.name}}</label>
-								<select style="width: 70%" ng-model="info.value" ng-change="trust(info.value)" ng-options="x for x in selectNames"></select>
+								<select style="width: 70%" ng-model="info.value" ng-change="trust(info.value)">
+									<option value="{{info.value}}">{{info.value}}</option>
+									<option ng-repeat="x in filesName" value="{{x}}">{{x}}</option>
+								</select>
+							</div>
+							<div ng-switch-when="顶部背景">
+								<label class="control-label" style="width: 25%">{{info.name}}</label>
+								<select style="width: 70%" ng-model="info.value" ng-change="changeBg(info.value)">
+									<option value="{{info.value}}">{{info.value}}</option>
+									<option ng-repeat="x in filesName" value="{{x}}">{{x}}</option>
+								</select>
 							</div>
 							<div ng-switch-when="地址百度坐标">
 								<label class="control-label" style="width: 25%">{{info.name}}</label>
-								<input type="text" ng-model="info.value" style="width: 70%" /><br>
+								<input type="text" ng-model="info.value" style="width: 70%" value="{{info.value}}" /><br>
 							</div>
 							<div ng-switch-default>
 								<label class="control-label" style="width: 25%">{{info.name}}</label>
-								<select style="width: 70%" ng-model="info.value" ng-options="x for x in selectNames"></select>
+								<select style="width: 70%" ng-model="info.value" value="{{info.value}}">
+									<option value="{{info.value}}">{{info.value}}</option>
+									<option ng-repeat="x in filesName" value="{{x}}">{{x}}</option>
+								</select>
 							</div>
 						</div>
 					</div>
 				</fieldset>
 			</div>
-
-			<!--			<button style="margin-bottom: 12px;" class="btn btn-primary btn-lg btn-block" ng-click="toggle(6)" ng-hide="!myVar[6]">其他文件</button>
-			<div ng-hide="myVar[6]">
-				<fieldset class="scheduler-border">
-					<legend class="scheduler-border" ng-click="toggle(6)">其他文件<img ng-src="{{host}}/images/up.png" width="30px" height="30px" /></legend>
-					<label class="control-label" style="width: 25%">地址地图坐标</label>
-					<input type="text" ng-model="map_address" style="width: 70%" /><br>
-					<label class="control-label" style="width: 25%">微信二维码</label>
-					<select style="width: 70%" ng-model="wCode" ng-options="x for x in selectNames"></select>
-					<label class="control-label" style="width: 25%">QQ二维码</label>
-					<select style="width: 70%" ng-model="qCode" ng-options="x for x in selectNames"></select>
-					<label class="control-label" style="width: 25%">顶部背景</label>
-					<select style="width: 70%" ng-model="topImage" ng-options="x for x in selectNames"></select>
-					<label class="control-label" style="width: 25%">背景音乐</label>
-					<select style="width: 70%" ng-model="music" ng-change="trust(music)" ng-options="x for x in selectNames"></select>
-				</fieldset>
-			</div>-->
-			<button class="btn btn-default" ng-click="saveCustomer()">保存</button>
+			<div style="text-align: right;">
+				<button class="btn btn-default" ng-click="saveCustomer()">保存</button>
+			</div>
 		</form>
-		
+
 	</div>
 
 	<div id="main">
 		<div class="col-md-4 col-xs-12 main" style="background-color: {{bgColor}};">
-			<div ng-include="'/views/'+topModule + '.html'"></div>
+			<div ng-include="'/views/'+ 'top.html'"></div>
 			<div ng-include="'/views/'+textModule + '.html'"></div>
-			<div class="imageContainer">
-				<div ng-repeat="fileName in botFiles">
-					<div ng-if="checkImage(fileName)">
-						<img ng-src="{{host}}/uploads/{{phone}}/{{fileName}}" width="100%" />
-					</div>
-					<div ng-if="checkVideo(fileName)">
-						<video width="100%" type="video/mp4" ng-src="{{videoUrl(fileName)}}" controls="controls">
-						</video>
-					</div>
-				</div>
-			</div>
-			<div class="menu" style="background-color: {{menuColor}};">
-				<ul>
-					<li>
-						<a href="tel:{{phone}}">
-							<div><img src="{{host}}/images/menu1.png" alt="" width="22" height="22" /></div>
-							<span>一键拨号</span>
-						</a>
-					</li>
-					<li>
-						<a href="javascript:void(0);" onclick="show('codeBg1')">
-							<img src="{{host}}/images/menu2.png" alt="" width="22" height="22" />
-							<span>存到手机</span>
-						</a>
-					</li>
-					<li>
-						<a href="http://map.baidu.com/mobile/?third_party=uri_api#place/list/qt=s&wd={{company_address}}&point={{otherFiles[0].value}}&searchFlag=uri_api&c=340/l=&vt=map&i=0">
-							<img src="{{host}}/images/menu3.png" alt="" width="22" height="22" />
-							<span>一键导航</span>
-						</a>
-					</li>
-					<li>
-						<a href="javascript:void(0)">
-							<img src="{{host}}/images/menu4.png" alt="" width="22" height="22" />
-							<span>推荐记录</span>
-						</a>
-					</li>
-				</ul>
-			</div>
-			<div class="layBg" id="layBg" style="display: none;">
-				<!--透明背景-->
-			</div>
-			<div class="codeBg" id="codeBg2" style="display: none;">
-				<div class="codeImg">
-					<div class="close" onclick="closeIt('codeBg2')">
-						<img ng-src="{{host}}/images/close.png" alt="" style="width: 30px; height: 30px;">
-					</div>
-					<div class="codeText">长按二维码识别关注微信</div>
-					<div style="text-align: center;">
-						<img ng-if="otherFiles[1].value == ''" ng-src="{{host}}/images/Wcode.jpg" id="codeImage" style="width: 160px; height: 160px;">
-						<img ng-if="otherFiles[1].value != ''" ng-src="{{host}}/uploads/{{phone}}/{{otherFiles[1].value}}" id="codeImage" style="width: 160px; height: 160px;">
-					</div>
-				</div>
-			</div>
-			<div class="codeBg" id="codeBg1" style="display: none;">
-				<div class="codeImg">
-					<div class="close" onclick="closeIt('codeBg1')">
-						<img ng-src="{{host}}/images/close.png" alt="" style="width: 30px; height: 30px;">
-					</div>
-					<div class="codeText">长按二维码识别关注QQ</div>
-					<div style="text-align: center;">
-						<img ng-if="otherFiles[2].value == ''" ng-src="{{host}}/images/QQcode.jpg" id="codeImage" style="width: 160px; height: 160px;">
-						<img ng-if="otherFiles[2].value != ''" ng-src="{{host}}/uploads/{{phone}}/{{otherFiles[2].value}}" id="codeImage" style="width: 160px; height: 160px;">
-					</div>
-				</div>
-			</div>
-
+			<div ng-include="'/views/' + 'bot.html'"></div>
 		</div>
 	</div>
-	<div class="col-md-4">
+	
+	<div class="col-md-4 col-sm-12">
 		<button style="margin-bottom: 12px;" class="btn btn-primary btn-lg btn-block" ng-click="toggle(7)" ng-hide="!myVar[7]">上传文件</button>
 		<div ng-hide="myVar[7]">
 			<fieldset class="scheduler-border">
@@ -228,21 +167,14 @@
 		<div ng-hide="myVar[8]">
 			<fieldset class="scheduler-border">
 				<legend class="scheduler-border" ng-click="toggle(8)">更改格式<img ng-src="{{host}}/images/up.png" width="30px" height="30px" /></legend>
-				<label class="control-label" style="width: 25%">顶部样式</label>
-				<select ng-model="topModule">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-				</select>
-				<br>
+
 				<label class="control-label" style="width: 25%">顶部高度</label>
 				<input type="number" ng-model="topHeight">
 				<br>
-				<label class="control-label" style="width: 40%">顶部图片高度</label>
+				<label class="control-label" style="width: 40%">顶部背景高度</label>
 				<input type="number" ng-model="topImgHeight">
 				<br>
-				<label class="control-label" style="width: 40%">顶部文本格式</label>
+				<label class="control-label" style="width: 40%">顶部文本格式：</label>
 				<div ng-repeat="info in topInfos">
 					{{info.value.substring(0,4)}}
 					<input type="text" ng-model="info.style.fontSize" style="width:20%">
@@ -262,6 +194,8 @@
 						<option>楷体</option>
 					</select>
 				</div>
+				<br>
+				<label class="control-label" style="width: 40%">顶部文件格式：</label>
 				<div ng-repeat="info in topFiles track by $index">
 					{{info.src.substring(0,4)}}
 					<input type="text" ng-model="info.style.width" style="width:20%">

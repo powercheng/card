@@ -23,9 +23,10 @@ var upload = multer({
 router.get('/', function(req, res, next) {
 	Customer.getCustomers(function(err, Customers) {
 		if(err) {
-			console.log(err);
+			next(err);
+		} else {
+			res.json(Customers);
 		}
-		res.json(Customers);
 	});
 });
 
@@ -40,8 +41,13 @@ router.post('/', function(req, res, next) {
 		otherInfos: req.body.otherInfos,
 		botFiles: req.body.botFiles,
 		otherFiles: req.body.otherFiles,
+		textModule: req.body.textModule,
+		bgColor: req.body.bgColor,
+		menuColor: req.body.menuColor,
+		topHeight: req.body.topHeight,
+		topImgHeight: req.body.topImgHeight,
+		topModule: req.body.topModule,
 	});
-	console.log(newCustomer);
 	// Create Article
 	Customer.createCustomer(newCustomer, function(err, customer) {
 		if(err) {
@@ -54,7 +60,6 @@ router.post('/', function(req, res, next) {
 
 router.put('/', function(req, res, next) {
 	var data = req.body;
-	console.log(data);
 	// Create Article
 	Customer.updateCustomer(data, function(err, article) {
 		if(err) {
@@ -67,12 +72,22 @@ router.put('/', function(req, res, next) {
 
 router.get('/:phone', function(req, res, next) {
 	Customer.getCustomerByPhone(req.params.phone, function(err, Customer) {
-		if (err) {
-			console.log(err);
-		} else if (Customer){
+		if(err) {
+			next(err);
+		} else if(Customer.length != 0) {
 			res.json(Customer);
 		} else {
 			res.send("不存在该用户");
+		}
+	});
+});
+
+router.delete('/:phone', function(req, res, next) {
+	Customer.removeCustomer(req.params.phone, function(err) {
+		if(err) {
+			next.log(err);
+		} else {
+			res.send("成功");
 		}
 	});
 });
