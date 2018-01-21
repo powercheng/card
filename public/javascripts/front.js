@@ -140,7 +140,7 @@ app.controller('AddCustomersCtrl', ['$scope', '$http', 'fileUpload', '$sce', fun
 	};
 
 	$scope.myVar = [true, true, true, true, true, true, true, true, true];
-	$scope.textModule = '单栏';
+	$scope.textModule = 'single';
 	$scope.bgColor = '#ff7694';
 	$scope.menuColor = '#ff7694';
 	$scope.topHeight = 200;
