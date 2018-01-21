@@ -1,10 +1,10 @@
 <div class="imageContainer">
-	<div ng-repeat="fileName in botFiles">
-		<div ng-if="checkImage(fileName)">
-			<img ng-src="{{host}}/uploads/{{phone}}/{{fileName}}" width="100%" />
+	<div ng-repeat="info in botFiles">
+		<div ng-if="checkImage(info.value)">
+			<img ng-src="/uploads/{{phone}}/{{info.value}}" width="100%" />
 		</div>
-		<div ng-if="checkVideo(fileName)">
-			<video width="100%" type="video/mp4" ng-src="{{trustUrl(fileName)}}" controls="controls">
+		<div ng-if="checkVideo(info.value)">
+			<video width="100%" type="video/mp4" ng-src="{{trustUrl(info.value)}}" controls="controls">
 			</video>
 		</div>
 	</div>
@@ -43,24 +43,24 @@
 <div class="codeBg" id="codeBg2" style="display: none;">
 	<div class="codeImg">
 		<div class="close" onclick="closeIt('codeBg2')">
-			<img ng-src="{{host}}/images/close.png" alt="" style="width: 30px; height: 30px;">
+			<img ng-src="/images/close.png" alt="" style="width: 30px; height: 30px;">
 		</div>
 		<div class="codeText">长按二维码识别关注微信</div>
 		<div style="text-align: center;">
-			<img ng-if="otherFiles[1].value == ''" ng-src="{{host}}/images/Wcode.jpg" id="codeImage" style="width: 160px; height: 160px;">
-			<img ng-if="otherFiles[1].value != ''" ng-src="{{host}}/uploads/{{phone}}/{{otherFiles[1].value}}" id="codeImage" style="width: 160px; height: 160px;">
+			<img ng-if="otherFiles[1].value == ''" ng-src="/images/Wcode.jpg" id="codeImage" style="width: 160px; height: 160px;">
+			<img ng-if="otherFiles[1].value != ''" ng-src="/uploads/{{phone}}/{{otherFiles[1].value}}" id="codeImage" style="width: 160px; height: 160px;">
 		</div>
 	</div>
 </div>
 <div class="codeBg" id="codeBg1" style="display: none;">
 	<div class="codeImg">
 		<div class="close" onclick="closeIt('codeBg1')">
-			<img ng-src="{{host}}/images/close.png" alt="" style="width: 30px; height: 30px;">
+			<img ng-src="/images/close.png" alt="" style="width: 30px; height: 30px;">
 		</div>
 		<div class="codeText">长按二维码识别关注QQ</div>
 		<div style="text-align: center;">
-			<img ng-if="otherFiles[2].value == ''" ng-src="{{host}}/images/QQcode.jpg" id="codeImage" style="width: 160px; height: 160px;">
-			<img ng-if="otherFiles[2].value != ''" ng-src="{{host}}/uploads/{{phone}}/{{otherFiles[2].value}}" id="codeImage" style="width: 160px; height: 160px;">
+			<img ng-if="otherFiles[2].value == ''" ng-src="/images/QQcode.jpg" id="codeImage" style="width: 160px; height: 160px;">
+			<img ng-if="otherFiles[2].value != ''" ng-src="/uploads/{{phone}}/{{otherFiles[2].value}}" id="codeImage" style="width: 160px; height: 160px;">
 		</div>
 	</div>
 </div>

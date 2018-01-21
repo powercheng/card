@@ -9,12 +9,12 @@
 			<button style="margin-bottom: 12px;" class="btn btn-primary btn-lg btn-block" ng-click="toggle(0)" ng-hide="!myVar[0]">填写顶部内容</button>
 			<div ng-hide="myVar[0]">
 				<fieldset class="scheduler-border">
-					<legend class="scheduler-border" ng-click="toggle(0)">填写顶部内容<img ng-src="{{host}}/images/up.png" width="30px" height="30px" /></legend>
+					<legend class="scheduler-border" ng-click="toggle(0)">填写顶部内容<img ng-src="/images/up.png" width="30px" height="30px" /></legend>
 
 					<div ng-repeat="info in topInfos">
 						<input style="width: 20%;" type="text" ng-model="info.name" />
 						<input style="width: 60%;" type="text" ng-model="info.value" />
-						<a href="javascript:void(0)"><img ng-src="{{host}}/images/close.png" width="20px" height="20px" ng-click="removeInfo(topInfos,$index)"></a>
+						<a href="javascript:void(0)"><img ng-src="/images/close.png" width="20px" height="20px" ng-click="removeInfo(topInfos,$index)"></a>
 					</div>
 					<button class="add" ng-click="addTopInfo(topInfos)">添加输入框</button>
 				</fieldset>
@@ -23,11 +23,11 @@
 			<button style="margin-bottom: 12px;" class="btn btn-primary btn-lg btn-block" ng-click="toggle(1)" ng-hide="!myVar[1]">填写个人信息</button>
 			<div ng-hide="myVar[1]">
 				<fieldset class="scheduler-border">
-					<legend class="scheduler-border" ng-click="toggle(1)">填写个人信息<img ng-src="{{host}}/images/up.png" width="30px" height="30px" /></legend>
+					<legend class="scheduler-border" ng-click="toggle(1)">填写个人信息<img ng-src="/images/up.png" width="30px" height="30px" /></legend>
 					<div ng-repeat="info in personInfos">
 						<input style="width: 20%;" type="text" ng-model="info.name" />
 						<input style="width: 60%;" type="text" ng-model="info.value" />
-						<a href="javascript:void(0)"><img ng-src="{{host}}/images/close.png" width="20px" height="20px" ng-click="removeInfo(personInfos,$index)"></a>
+						<a href="javascript:void(0)"><img ng-src="/images/close.png" width="20px" height="20px" ng-click="removeInfo(personInfos,$index)"></a>
 					</div>
 					<button class="add" ng-click="addInfo(personInfos)">添加输入框</button>
 				</fieldset>
@@ -36,11 +36,11 @@
 			<button style="margin-bottom: 12px;" class="btn btn-primary btn-lg btn-block" ng-click="toggle(2)" ng-hide="!myVar[2]">填写公司信息</button>
 			<div ng-hide="myVar[2]">
 				<fieldset class="scheduler-border">
-					<legend class="scheduler-border" ng-click="toggle(2)">填写公司信息<img ng-src="{{host}}/images/up.png" width="30px" height="30px" /></legend>
+					<legend class="scheduler-border" ng-click="toggle(2)">填写公司信息<img ng-src="/images/up.png" width="30px" height="30px" /></legend>
 					<div ng-repeat="info in companyInfos">
 						<input style="width: 20%;" type="text" ng-model="info.name" />
 						<input style="width: 60%;" type="text" ng-model="info.value" />
-						<a href="javascript:void(0)"><img ng-src="{{host}}/images/close.png" width="20px" height="20px" ng-click="removeInfo(companyInfos, $index)"></a>
+						<a href="javascript:void(0)"><img ng-src="/images/close.png" width="20px" height="20px" ng-click="removeInfo(companyInfos, $index)"></a>
 					</div>
 					<button class="add" ng-click="addInfo(companyInfos)">添加输入框</button>
 				</fieldset>
@@ -49,11 +49,11 @@
 			<button style="margin-bottom: 12px;" class="btn btn-primary btn-lg btn-block" ng-click="toggle(3)" ng-hide="!myVar[3]">填写其他信息</button>
 			<div ng-hide="myVar[3]">
 				<fieldset class="scheduler-border">
-					<legend class="scheduler-border" ng-click="toggle(3)">填写其他信息<img ng-src="{{host}}/images/up.png" width="30px" height="30px" /></legend>
+					<legend class="scheduler-border" ng-click="toggle(3)">填写其他信息<img ng-src="/images/up.png" width="30px" height="30px" /></legend>
 					<div ng-repeat="info in otherInfos">
 						<input style="width: 20%;" type="text" ng-model="info.name" />
 						<input style="width: 60%;" type="text" ng-model="info.value" />
-						<a href="javascript:void(0)"><img ng-src="{{host}}/images/close.png" width="20px" height="20px" ng-click="removeInfo(otherInfos, $index)"></a>
+						<a href="javascript:void(0)"><img ng-src="/images/close.png" width="20px" height="20px" ng-click="removeInfo(otherInfos, $index)"></a>
 					</div>
 					<button class="add" ng-click="addInfo(otherInfos)">添加输入框</button>
 				</fieldset>
@@ -62,43 +62,43 @@
 			<button style="margin-bottom: 12px;" class="btn btn-primary btn-lg btn-block" ng-click="toggle(4)" ng-hide="!myVar[4]">顶部文件</button>
 			<div ng-hide="myVar[4]">
 				<fieldset class="scheduler-border">
-					<legend class="scheduler-border" ng-click="toggle(4)">顶部文件<img ng-src="{{host}}/images/up.png" width="30px" height="30px" /></legend>
+					<legend class="scheduler-border" ng-click="toggle(4)">顶部文件<img ng-src="/images/up.png" width="30px" height="30px" /></legend>
 
 					<div ng-repeat="info in topFiles">
 						<label class="control-label" style="width: 25%">顶部文件{{$index+1}}</label>
 						<select style="width: 60%" ng-model="info.src">
 							<option value="{{info.src}}">{{info.src}}</option>
 							<option ng-repeat="x in filesName" value="{{x}}">{{x}}</option>
+							<option value=""></option>
 						</select>
-						<a href="javascript:void(0)">&nbsp&nbsp<img ng-src="{{host}}/images/close.png" width="15px" height="15px" ng-click="removeInfo(topFiles, $index)"></a>
+						<a href="javascript:void(0)">&nbsp&nbsp<img ng-src="/images/close.png" width="15px" height="15px" ng-click="removeInfo(topFiles, $index)"></a>
 					</div>
 					<button class="add" ng-click="addTopFile(topFiles)">添加顶部文件</button>
-
 				</fieldset>
 			</div>
 
 			<button style="margin-bottom: 12px;" class="btn btn-primary btn-lg btn-block" ng-click="toggle(5)" ng-hide="!myVar[5]">底部文件</button>
 			<div ng-hide="myVar[5]">
 				<fieldset class="scheduler-border">
-					<legend class="scheduler-border" ng-click="toggle(5)">底部文件<img ng-src="{{host}}/images/up.png" width="30px" height="30px" /></legend>
+					<legend class="scheduler-border" ng-click="toggle(5)">底部文件<img ng-src="/images/up.png" width="30px" height="30px" /></legend>
 
 					<div ng-repeat="info in botFiles">
 						<label class="control-label" style="width: 25%">底部文件{{$index+1}}</label>
-						<select style="width: 60%" ng-model="info">
-							<option value="{{info}}">{{info}}</option>
+						<select style="width: 60%" ng-model="info.value">
+							<option value="{{info.value}}">{{info.value}}</option>
 							<option ng-repeat="x in filesName" value="{{x}}">{{x}}</option>
+							<option value=""></option>
 						</select>
-						<a href="javascript:void(0)">&nbsp&nbsp<img ng-src="{{host}}/images/close.png" width="15px" height="15px" ng-click="removeInfo(botFiles, $index)"></a>
+						<a href="javascript:void(0)">&nbsp&nbsp<img ng-src="/images/close.png" width="15px" height="15px" ng-click="removeInfo(botFiles, $index)"></a>
 					</div>
 					<button class="add" ng-click="addBotFile(botFiles)">添加底部文件</button>
-
 				</fieldset>
 			</div>
 
 			<button style="margin-bottom: 12px;" class="btn btn-primary btn-lg btn-block" ng-click="toggle(6)" ng-hide="!myVar[6]">其他文件</button>
 			<div ng-hide="myVar[6]">
 				<fieldset class="scheduler-border">
-					<legend class="scheduler-border" ng-click="toggle(6)">其他文件<img ng-src="{{host}}/images/up.png" width="30px" height="30px" /></legend>
+					<legend class="scheduler-border" ng-click="toggle(6)">其他文件<img ng-src="/images/up.png" width="30px" height="30px" /></legend>
 					<div ng-repeat="info in otherFiles">
 						<div ng-switch="info.name">
 							<div ng-switch-when="背景音乐">
@@ -106,6 +106,7 @@
 								<select style="width: 70%" ng-model="info.value" ng-change="trust(info.value)">
 									<option value="{{info.value}}">{{info.value}}</option>
 									<option ng-repeat="x in filesName" value="{{x}}">{{x}}</option>
+									<option value=""></option>
 								</select>
 							</div>
 							<div ng-switch-when="顶部背景">
@@ -113,6 +114,7 @@
 								<select style="width: 70%" ng-model="info.value" ng-change="changeBg(info.value)">
 									<option value="{{info.value}}">{{info.value}}</option>
 									<option ng-repeat="x in filesName" value="{{x}}">{{x}}</option>
+									<option value=""></option>
 								</select>
 							</div>
 							<div ng-switch-when="地址百度坐标">
@@ -124,6 +126,7 @@
 								<select style="width: 70%" ng-model="info.value" value="{{info.value}}">
 									<option value="{{info.value}}">{{info.value}}</option>
 									<option ng-repeat="x in filesName" value="{{x}}">{{x}}</option>
+									<option value=""></option>
 								</select>
 							</div>
 						</div>
@@ -145,11 +148,11 @@
 		</div>
 	</div>
 	
-	<div class="col-md-4 col-sm-12">
+	<div class="col-md-4 col-xs-12">
 		<button style="margin-bottom: 12px;" class="btn btn-primary btn-lg btn-block" ng-click="toggle(7)" ng-hide="!myVar[7]">上传文件</button>
 		<div ng-hide="myVar[7]">
 			<fieldset class="scheduler-border">
-				<legend class="scheduler-border" ng-click="toggle(7)">上传文件<img ng-src="{{host}}/images/up.png" width="30px" height="30px" /></legend>
+				<legend class="scheduler-border" ng-click="toggle(7)">上传文件<img ng-src="/images/up.png" width="30px" height="30px" /></legend>
 				<div>
 					<label style="width: 10%;">文件</label>
 					<input type="file" file-model="uploadFiles" multiple="multiple">
@@ -166,7 +169,7 @@
 		<button style="margin-bottom: 12px;" class="btn btn-primary btn-lg btn-block" ng-click="toggle(8)" ng-hide="!myVar[8]">更改样式</button>
 		<div ng-hide="myVar[8]">
 			<fieldset class="scheduler-border">
-				<legend class="scheduler-border" ng-click="toggle(8)">更改格式<img ng-src="{{host}}/images/up.png" width="30px" height="30px" /></legend>
+				<legend class="scheduler-border" ng-click="toggle(8)">更改格式<img ng-src="/images/up.png" width="30px" height="30px" /></legend>
 
 				<label class="control-label" style="width: 25%">顶部高度</label>
 				<input type="number" ng-model="topHeight">
@@ -197,13 +200,11 @@
 				<br>
 				<label class="control-label" style="width: 40%">顶部文件格式：</label>
 				<div ng-repeat="info in topFiles track by $index">
-					{{info.src.substring(0,4)}}
+					{{info.src.substring(0,9)}}
 					<input type="text" ng-model="info.style.width" style="width:20%">
 					<input type="text" ng-model="info.style.height" style="width:20%">
 					<input type="text" ng-model="info.style.borderRadius" style="width:20%">
-
 				</div>
-
 				<br>
 				<label class="control-label" style="width: 25%">文本样式</label>
 				<select ng-model="textModule">

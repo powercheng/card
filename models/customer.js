@@ -80,8 +80,9 @@ Customer.removeCustomer = function(phone, callback) {
 	var query = {
 		phone: phone
 	};
+	
 	Customer.find(query, function(err, Customer) {
-		if(error) {
+		if (err) {
 			return next(new Error('Could not load Customer'));
 		} else if(Customer.length == 0) {
 			console.log("no customer found");

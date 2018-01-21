@@ -165,10 +165,14 @@ router.post('/create', function(req, res, next) {
 		"<link href=\"../../stylesheets/main.css\" rel=\"stylesheet\">" +
 		"</head>" +
 		"<body>" +
-		"<div>";
+		"<div col-md-4 col-xs-0>" +
+		"/div>" +
+	"<div>";
 	var tail = "</div>" +
-		"</body>" +
-		"</html>";
+		"<div col-md-4 col-xs-0>" +
+		"/div>" +
+	"</body>" +
+	"</html>";
 	var out = head + data + tail;
 	var path = "./public/uploads/" + phone + "/index.html";
 	var buffer = new Buffer(out);
@@ -177,9 +181,7 @@ router.post('/create', function(req, res, next) {
 	}
 	fs.open(path, 'w+', function(err, fd) {
 		if(err) {
-			res.send({
-				status: "error"
-			});
+			next(error);
 		} else {
 			fs.write(fd, buffer, 0, buffer.length, null, function(err) {
 				if(err) {

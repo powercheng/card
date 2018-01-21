@@ -1,5 +1,5 @@
 <div class="top" id="top1" style="height: {{topHeight}}px; 
-background: url('{{host}}/uploads/{{phone}}/{{otherFiles[3].value}}') no-repeat; 
+background: url('/uploads/{{phone}}/{{otherFiles[3].value}}') no-repeat; 
 background-size: 100% {{topImgHeight}}px;
 position: relative;">
 
@@ -10,8 +10,8 @@ position: relative;">
 
 	<div ng-repeat="info in topFiles">
 		<div ng-if="checkImage(info.src)">
-			<img ng-if="info.src == '默认头像.jpg'" ng-src="{{host}}/images/pImage.jpg" ng-style="info.style" ng-mousedown="dragable($event, info)" />
-			<img ng-if="info.src != '默认头像.jpg'" ng-src="{{host}}/uploads/{{phone}}/{{info.src}}" ng-style="info.style" ng-mousedown="dragable($event, info)" />
+			<img ng-if="info.src == '默认头像.jpg'" ng-src="/images/pImage.jpg" ng-style="info.style" ng-mousedown="dragable($event, info)" />
+			<img ng-if="info.src != '默认头像.jpg'" ng-src="/uploads/{{phone}}/{{info.src}}" ng-style="info.style" ng-mousedown="dragable($event, info)" />
 		</div>
 		<div ng-if="checkVideo(info.src)">
 			<video type="video/mp4" ng-src="{{trustUrl(info.src)}}" ng-style="info.style" ng-mousedown="dragable($event, info)" controls="controls">
