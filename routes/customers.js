@@ -1,11 +1,11 @@
-var express = require('express');
-var router = express.Router();
-var Customer = require('../models/customer');
-var fs = require("fs");
-var multer = require('multer');
-var storage = multer.diskStorage({
+const express = require('express');
+const router = express.Router();
+const Customer = require('../models/Customer');
+const fs = require("fs");
+const multer = require('multer');
+const storage = multer.diskStorage({
 	destination: function(req, file, cb) {
-		var path = './public/uploads/' + req.body.phone;
+		const path = './public/uploads/' + req.body.phone;
 		console.log(path);
 		if(!fs.existsSync(path)) {
 			fs.mkdirSync(path);
@@ -16,11 +16,11 @@ var storage = multer.diskStorage({
 		cb(null, file.originalname);
 	}
 });
-var upload = multer({
+const upload = multer({
 	storage: storage
 })
 
-router.get('/', function(req, res, next) {
+/*router.get('/', function(req, res, next) {
 	Customer.getCustomers(function(err, Customers) {
 		if(err) {
 			next(err);
@@ -28,7 +28,7 @@ router.get('/', function(req, res, next) {
 			res.json(Customers);
 		}
 	});
-});
+});*/
 
 router.post('/', function(req, res, next) {
 	// Article Object
@@ -160,19 +160,22 @@ router.post('/create', function(req, res, next) {
 		"<meta name=\"apple-mobile-web-app-capable\" content=\"yes\">" +
 		"<meta name=\"apple-mobile-web-app-status-bar-style\" content=\"black\">" +
 		"<title>" + name + "的微名片</title>" +
-		"<link href=\"../../bower_components/bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\">" +
-		"<link href=\"../../stylesheets/style.css\" rel=\"stylesheet\">" +
-		"<link href=\"../../stylesheets/main.css\" rel=\"stylesheet\">" +
+		"<link href=\"/stylesheets/bootstrap.min.css\" rel=\"stylesheet\">" +
+		"<link href=\"/stylesheets/style.css\" rel=\"stylesheet\">" +
+		"<link href=\"/stylesheets/main.css\" rel=\"stylesheet\">" +
 		"</head>" +
 		"<body>" +
 		"<div col-md-4 col-xs-0>" +
-		"/div>" +
-	"<div>";
-	var tail = "</div>" +
+		"</div>" + 
+			"<div id=\"qrcode\" style=\"width:100px; height:100px; margin-top:15px;\">" +
+			"</div>" + 
+		"<div>";
+	var tail = 
+		"</div>" +
 		"<div col-md-4 col-xs-0>" +
 		"/div>" +
-	"</body>" +
-	"</html>";
+		"</body>" +
+		"</html>";
 	var out = head + data + tail;
 	var path = "./public/uploads/" + phone + "/index.html";
 	var buffer = new Buffer(out);

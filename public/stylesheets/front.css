@@ -1,0 +1,197 @@
+fieldset {
+	margin-bottom: 20px;
+}
+legend {
+	font-size: 18px;
+	margin: 0;
+}
+input {
+	margin: 2px;
+	font-size: :;px;
+}
+
+input[type=file] {
+	display: inline;
+}
+
+
+.add {
+	border-radius: 1em;
+	padding: 3px;
+	width: 25%;
+	margin: 2px;
+}
+
+#qrcode {
+  width:160px;
+  height:160px;
+  margin-top:15px;
+}  
+
+.main {
+	margin: 0px auto;
+	width: 320px;
+	padding: 0;
+	border: none;
+	background: url(/images/bg.png) no-repeat 0 0;
+	background-size: 100% auto;
+	font-family: 微软雅黑, 宋体, Arial, Helvetica, sans-serif;
+}
+.music {
+	width: 30px;
+	height: 30px;
+	background: url(/images/music-btn-open.png) no-repeat 0 0;
+	background-size: 30px 30px;
+	position: absolute;
+	top: 8px;
+	right: 8px;
+}
+
+.top {
+	margin: 0px 6px;
+}
+
+a {
+	color: #333;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+a:link {
+	text-decoration: none;
+}
+
+a:visited {
+	text-decoration: none;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+
+.text {
+	background-color: white;
+	margin: 0 6px;
+}
+
+.mutexTab {
+	display: flex;
+	margin: 0 6px;
+}
+
+.mutexTab .mut {
+	padding: 10px 0px;
+	flex: 1;
+	text-align: center;
+	font-size: 14px;
+}
+
+.mutexTab .mused {
+	background-color: white;
+}
+
+.mutexTab .mused a {
+	font-weight: 700;
+}
+
+.text ul li {
+	padding: 8px;
+	border-bottom: 1px solid #dedede;
+}
+
+.title {
+	width: 80px;
+	position: absolute;
+	color: #aaa;
+}
+
+.content {
+	padding-left: 80px;
+	word-wrap: break-word;
+}
+
+.imageContainer {
+	margin: 6px 6px 60px 6px;
+
+}
+
+img {
+	margin: 2px 0;
+	padding: 0;
+	border: none;
+}
+
+.menu {
+	width: 100%;
+	height: 54px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+
+.menu ul {
+	display: flex;
+	list-style-type: none;
+}
+
+.menu ul li {
+	flex: 1;
+}
+
+.menu ul li a {
+	padding: 6px 0;
+	display: block;
+	text-align: center;
+}
+
+.menu ul li a span {
+	display: block;
+	text-align: center;
+	height: 18px;
+	line-height: 18px;
+	overflow: hidden;
+	font-size: 12px;
+	color: #fff;
+}
+
+.layBg {
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.8) none repeat scroll 0 0 !important;
+	filter: Alpha(opacity = 80);
+	background: #000;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 11;
+}
+
+.codeBg {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 15;
+ }
+ 
+.codeImg {
+	width: 100%;
+	background-color: #fff;
+	padding: 20px 0;
+	position: fixed;
+	left: 0;
+	bottom: 0px;
+}
+.codeText {
+	text-align: center;
+	font-size: 12px;
+	color: #aaa;
+	line-height: 30px;
+}

@@ -12,9 +12,9 @@ function music(){
     var audio = document.getElementById("musicId");
     if (audio.paused) {
         audio.play();
-        document.getElementById("musicImage").style.backgroundImage = "url(../images/music-btn-open.png)"; 
+        document.getElementById("musicImage").style.backgroundImage = "url(/images/music-btn-open.png)"; 
     } else {
         audio.pause();
-        document.getElementById("musicImage").style.backgroundImage = "url(../images/music-btn-close.png)"; 
+        document.getElementById("musicImage").style.backgroundImage = "url(/images/music-btn-close.png)"; 
     }
 }

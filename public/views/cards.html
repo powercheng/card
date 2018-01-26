@@ -1,0 +1,9 @@
+<div class="container">
+	<div ng-repeat="card in cards">
+		<p>{{card._id}}  {{card.phone}}  {{card.name}}</p>
+		<a href="/#/cards/{{card._id}}"><button>编辑</button></a>
+	</div>
+
+	<input type="text" ng-model="phone"></input>
+	<button ng-click="createCard()">创建</button>
+</div>
