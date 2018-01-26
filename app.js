@@ -13,13 +13,14 @@ var mongo = require('mongodb');
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 var db = mongoose.connect('mongodb://root:1215225624@127.0.0.1:27017/card?authSource=admin', {
+	useMongoClient:true
 });
 
 var users = require('./routes/users');
 var cards = require('./routes/cards');
 
 var app = express();
-app.listen(80);
+
 
 // view engine setup
 app.set('views',path.join(__dirname , 'views') );
@@ -47,5 +48,5 @@ app.use(passport.session());
 app.use('/', users);
 app.use('/cards', cards);
 
-
+app.set('port', 80);
 module.exports = app;
