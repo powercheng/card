@@ -19,6 +19,7 @@ var users = require('./routes/users');
 var cards = require('./routes/cards');
 
 var app = express();
+app.listen(80);
 
 // view engine setup
 app.set('views',path.join(__dirname , 'views') );
